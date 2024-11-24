@@ -1,33 +1,710 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* General styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #081b29;
+  color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.logo {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* General styles for Hero section */
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.home-content {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+.home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.home h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.home p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0077b5; /* LinkedIn blue for hover */
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-box a {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-box a:hover {
+  background-color: #0077b5; /* LinkedIn blue on hover */
+}
+
+.profile {
+  margin-top: 30px;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-content {
+    padding: 20px;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .home h3 {
+    font-size: 1.5rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .social-links {
+    gap: 15px;
+  }
+
+  .social-links a {
+    font-size: 1.2rem;
+  }
+
+  .btn-box {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home h1 {
+    font-size: 1.8rem;
+  }
+
+  .home h3 {
+    font-size: 1.3rem;
+  }
+
+  .home p {
+    font-size: 0.95rem;
+  }
+
+  .social-links a {
+    font-size: 1.1rem;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+/* General Footer styles */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.social {
+  margin-bottom: 20px;
+}
+
+.social a {
+  font-size: 1.5rem;
+  color: white;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social a:hover {
+  color: #0077b5; /* LinkedIn blue hover color */
+}
+
+.copyright {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 0 20px;
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .copyright {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 0 10px;
+  }
+
+  .social {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .social a {
+    font-size: 1.2rem;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+  }
+}
+
+/* General styles for social media icons */
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Space between icons */
+  margin-top: 20px;
+}
+
+.icons {
+  font-size: 2rem; /* Set the size of the icons */
+  color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icons:hover {
+  color: #0077b5; /* LinkedIn blue on hover */
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .social-media {
+    gap: 15px; /* Reduce space between icons on tablets */
+  }
+
+  .icons {
+    font-size: 1.8rem; /* Slightly smaller icons on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .social-media {
+    flex-direction: column; /* Stack icons vertically on small screens */
+    gap: 10px; /* Reduce space between stacked icons */
+  }
+
+  .icons {
+    font-size: 1.5rem; /* Smaller icons on mobile */
+  }
+}
+
+/* General button styles */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color: #0077b5; /* LinkedIn blue */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #005f8a; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Responsive button styles */
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 25px; /* Slightly smaller padding on tablets */
+    font-size: 0.95rem; /* Smaller font size on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 8px 20px; /* Even smaller padding on mobile */
+    font-size: 0.9rem; /* Smaller font size on mobile */
+    margin-top: 15px; /* Adjust margin on small screens */
+  }
+}
+
+/* About Section Styles */
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.about-content {
+  max-width: 50%;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.heading span {
+  color: #0077b5; /* Highlight 'Me' in LinkedIn blue */
+}
+
+.about-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.about-img {
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .about {
+    flex-direction: column; /* Stack content on tablets */
+    text-align: center;
+  }
+
+  .about-content {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .about-img {
+    max-width: 80%;
+  }
+
+  .heading {
+    font-size: 2rem; /* Smaller heading for tablets */
+  }
+
+  .about-content p {
+    font-size: 1rem; /* Slightly smaller text on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .about-img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: contain; /* Ensure the image looks good even when resized */
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.6rem; /* Smaller heading on mobile */
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  .img {
+    max-width: 100%;
+    height: 200px; /* Slightly smaller image on mobile */
+  }
+}
+
+/* Services Section Styles */
+.services {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.heading span {
+  color: #0077b5; /* Highlight 'Services' in blue */
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+  gap: 20px;
+  justify-items: center;
+}
+
+.services-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.services-box i {
+  font-size: 3rem;
+  color: #0077b5; /* Icon color */
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.services-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.services-box:hover i {
+  color: #005f8a; /* Darker blue on hover */
+}
+
+.services-box h3 {
+  font-size: 1.75rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.services-box p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .services-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 15px;
+  }
+
+  .heading {
+    font-size: 2rem; /* Smaller heading for tablets */
+  }
+
+  .services-box {
+    padding: 25px;
+  }
+
+  .services-box i {
+    font-size: 2.5rem; /* Smaller icons for tablets */
+  }
+
+  .services-box h3 {
+    font-size: 1.5rem; /* Smaller heading for tablets */
+  }
+
+  .services-box p {
+    font-size: 0.95rem; /* Slightly smaller text */
+  }
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px;
+  }
+
+  .heading {
+    font-size: 1.8rem; /* Smaller heading on mobile */
+  }
+
+  .services-box {
+    padding: 20px;
+  }
+
+  .services-box i {
+    font-size: 2rem; /* Smaller icons on mobile */
+  }
+
+  .services-box h3 {
+    font-size: 1.3rem; /* Smaller heading on mobile */
+  }
+
+  .services-box p {
+    font-size: 0.9rem; /* Smaller text on mobile */
+  }
+}
+
+/* Contact Section Styles */
+.contact {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.heading span {
+  color: #0077b5; /* Highlight 'Me' in blue */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.input-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns on larger screens */
+  gap: 20px;
+}
+
+.input-box input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical; /* Allow resizing vertically */
+}
+
+.btn {
+  padding: 12px 20px;
+  background-color: #0077b5;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center; /* Center the button */
+}
+
+.btn:hover {
+  background-color: #005f8a; /* Darker blue on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .input-box {
+    grid-template-columns: 1fr; /* Stack fields in one column on tablets */
+  }
+
+  .heading {
+    font-size: 2rem; /* Smaller heading for tablets */
+  }
+
+  .input-box input,
+  textarea {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 10px 18px; /* Slightly smaller button on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 30px 15px; /* Adjust padding for smaller screens */
+  }
+
+  .heading {
+    font-size: 1.8rem; /* Smaller heading on mobile */
+  }
+
+  .input-box input,
+  textarea {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 10px 15px; /* Smaller button on mobile */
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 25px 10px; /* Even smaller padding on mobile */
+  }
+
+  .heading {
+    font-size: 1.6rem; /* Even smaller heading on mobile */
+  }
+
+  .input-box input,
+  textarea {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 10px 12px; /* Smaller button on small screens */
+    font-size: 0.85rem;
   }
 }
